@@ -1,3 +1,12 @@
 <div class="jumbotron">
   <h2><%= gettext "Welcome to %{name}", name: "Battleship!" %></h2>
 </div>
+<%= form_tag("/games", method: :post) %>
+    <div>
+        <label for="username-input">Enter a username
+          <input name="username" id="username-input" type="text" value="anonymous"></input></label>
+    </div>
+    <div>
+        <button id="new_game_starter">Start a new Game</button>
+    </div>
+</form>
