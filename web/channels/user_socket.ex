@@ -2,7 +2,7 @@ defmodule Battleship.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Battleship.RoomChannel
+  channel "room:*", Battleship.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket,
