@@ -1,4 +1,4 @@
-# Schiffe versenken: A simple battleship game
+# A simple battleship game
 
 In this game two players take turns in shooting the opponent's ships.
 Depending on ship type, they can take two to 5 direct hits before sinking,
