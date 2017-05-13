@@ -1,3 +1,0 @@
-<div class="jumbotron">
-  <h2>I have to say, <%= @messenger %>, this works surprisingly well!</h2>
-</div>
