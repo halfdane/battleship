@@ -1,11 +1,11 @@
 <div class="jumbotron">
   <h2>I have to say, <%= assigns[:username] || "unknown stranger" %>, this works surprisingly well!</h2>
-  <div>Send <a href="<%= game_path(@conn, :show, @game_id) %>">this link</a> to someone</div>
+  <div>Send <a href="<%= game_url(@conn, :show, @game_id) %>">this link</a> to someone</div>
 
-  <a href="<%= game_path(@conn, :show, @game_id) %>"><div id="qrcode"></div></a>
+  <a href="<%= game_url(@conn, :show, @game_id) %>"><div id="qrcode"></div></a>
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {
-      new QRCode(document.getElementById("qrcode"), "<%= game_path(@conn, :show, @game_id) %>");
+      new QRCode(document.getElementById("qrcode"), "<%= game_url(@conn, :show, @game_id) %>");
     });
   </script>
 </div>
