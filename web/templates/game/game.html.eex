@@ -1,4 +1,4 @@
 <div class="jumbotron">
-  <h2>I have to say, <%= assigns[:messenger] || "unknown stranger" %>, this works surprisingly well!</h2>
+  <h2>I have to say, <%= assigns[:username] || "unknown stranger" %>, this works surprisingly well!</h2>
   <div>Your game id is <%= @game_id %> </div>
 </div>
