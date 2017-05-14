@@ -4,8 +4,7 @@ set -e
 mix test
 
 git add --all
-echo -n "Message: "
-read COMMIT_MSG
+read -e -p "Message: " COMMIT_MSG
 git commit -m "${COMMIT_MSG}"
 
 git push
