@@ -5,3 +5,7 @@ otp_release:
   - 19.0
 notifications:
   email: false
+deploy:
+  provider: heroku
+  app: immense-taiga-84023
+  api_key: $HEROKU_KEY
