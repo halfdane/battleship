@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to the Battleship!" %></h2>
+  <h2><%= gettext "Welcome to Battleship!" %></h2>
 </div>
 <%= form_tag("/games", method: :post) %>
     <div>
