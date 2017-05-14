@@ -3,8 +3,6 @@ elixir:
   - 1.3.4
 otp_release:
   - 19.0
-notifications:
-  email: false
 deploy:
   provider: heroku
   app: immense-taiga-84023
