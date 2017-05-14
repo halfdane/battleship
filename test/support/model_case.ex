@@ -16,23 +16,8 @@ defmodule Battleship.ModelCase do
 
   using do
     quote do
-      alias Battleship.Repo
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
       import Battleship.ModelCase
     end
-  end
-
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Battleship.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Battleship.Repo, {:shared, self()})
-    end
-
-    :ok
   end
 
   @doc """

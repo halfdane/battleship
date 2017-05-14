@@ -20,11 +20,6 @@ defmodule Battleship.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias Battleship.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-
       import Battleship.Router.Helpers
 
       # The default endpoint for testing
@@ -32,13 +27,4 @@ defmodule Battleship.ConnCase do
     end
   end
 
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Battleship.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Battleship.Repo, {:shared, self()})
-    end
-
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
-  end
 end
