@@ -12,10 +12,26 @@ defmodule Battleship.GameControllerTest do
     assert redirected_to(conn) == game_path(conn, :show, URI.decode(id))
   end
 
-  test "New game should know user's name", %{conn: conn} do
-    expected_username = "some_327192_username"
-    conn = post conn, game_path(conn, :create), [ username: expected_username ]
+  test "New game should know user's name (but not second)", %{conn: conn} do
+    expected_first_username = "first_username"
+    expected_second_username = "second_username"
+
+    conn = post conn, game_path(conn, :create), [ username: expected_first_username ]
     conn = get conn, redirected_to(conn)
-    assert html_response(conn, 200) =~ expected_username
+
+    assert html_response(conn, 200) =~ expected_first_username
+    assert ! (html_response(conn, 200) =~ expected_second_username)
+  end
+
+  test "Both users can join", %{conn: conn} do
+    expected_first_username = "first_username"
+    expected_second_username = "second_username"
+
+    conn = post conn, game_path(conn, :create), [ username: expected_first_username ]
+    conn = post conn, redirected_to(conn), [ username: expected_second_username ]
+    conn = get conn, redirected_to(conn)
+
+    assert html_response(conn, 200) =~ expected_first_username
+    assert html_response(conn, 200) =~ expected_second_username
   end
 end

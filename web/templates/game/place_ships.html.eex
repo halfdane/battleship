@@ -1,0 +1,5 @@
+<div class="jumbotron">
+  <h2>I have to say, <%= assigns[:first] || "unknown stranger" %>, this works surprisingly well!</h2>
+  <h2>I have to say, <%= assigns[:second] || "unknown stranger" %>, this works surprisingly well!</h2>
+  <div>Both users have joined. Proceeded to next stage</div>
+</div>

@@ -2,6 +2,16 @@
   <h2>I have to say, <%= assigns[:username] || "unknown stranger" %>, this works surprisingly well!</h2>
   <div>Send <a href="<%= game_url(@conn, :show, @game_id) %>">this link</a> to someone</div>
 
+  <%= form_tag("/games/"<>@game_id, method: :post) %>
+      <div>
+          <label for="username-input">Enter a username
+            <input name="username" id="username-input" type="text" value="anonymous"></input></label>
+      </div>
+      <div>
+          <button id="new_game_starter">Start a new Game</button>
+      </div>
+  </form>
+
   <a href="<%= game_url(@conn, :show, @game_id) %>"><div id="qrcode"></div></a>
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {

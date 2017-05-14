@@ -19,7 +19,10 @@ defmodule Battleship.Router do
     get "/", PageController, :index
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
-    resources "/games", GameController
+
+    resources "/games", GameController do
+      post "/", GameController, :create_second
+    end
   end
 
   # Other scopes may use custom stacks.

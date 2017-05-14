@@ -6,8 +6,17 @@ defmodule Battleship.GameController do
   end
 
   def show(conn, %{"id" => game_id}) do
-    username = Agent.get(String.to_atom(game_id), fn game -> game.data.first end)
-    render conn, "game.html", game_id: game_id, username: username
+    game = Agent.get(String.to_atom(game_id), &(&1))
+
+    case game.state do
+      :greeting_second -> render conn, "game.html", game_id: game_id, username: game.data.first
+      :ship_placement -> render conn, "place_ships.html", game_id: game_id, first: game.data.first, second: game.data.second
+    end
+  end
+
+  def create_second(conn, %{"game_id" => game_id, "username" => username}) do
+    Agent.update(String.to_atom(game_id), &Battleship.Game.join(&1, username))
+    redirect conn, to: Battleship.Router.Helpers.game_path(conn, :show, game_id)
   end
 
   def create(conn, %{"username" => username}) do
